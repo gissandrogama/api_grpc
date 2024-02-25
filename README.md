@@ -1,21 +1,34 @@
-# SampleApp
+## Como iniciar a aplicação.
 
-**TODO: Add description**
+Faça o clone do projeto:
 
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `sample_app` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:sample_app, "~> 0.1.0"}
-  ]
-end
+```shell
+  $ git clone git@github.com:gissandrogama/api_grpc.git
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/sample_app>.
+* Carregar as dependências:
 
+```shell
+  $ mix deps.get
+```
+   
+
+* Iniciar o servidor:
+
+```shell
+  $ iex -S mix
+```
+
+## Criar um usuário
+
+Abra um terminal e acesse o diretório do projeto `cd /sample_app`.
+
+```shell
+  $ grpcurl -plaintext -proto sample_app.proto -d '{"first_name": "First name", "last_name": "Second name", "age": 25}' localhost:50051 sample_app.User.Create
+```
+
+## Buscar um usuário
+
+```shell
+  $ grpcurl -plaintext -proto sample_app.proto -d '{"id": 2}' localhost:50051 sample_app.User.Get
+```
